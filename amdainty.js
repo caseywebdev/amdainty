@@ -1,11 +1,14 @@
-(function (root) {
+var define;
+var require;
+
+(function () {
   'use strict';
 
   // Store modules in an object.
   var mods = {};
 
   // Define just adds to the module storage.
-  var define = root.define = function (name, deps, cb) {
+  define = function (name, deps, cb) {
     if (!cb) {
       cb = deps;
       deps = ['require', 'exports', 'module'];
@@ -18,7 +21,7 @@
 
   // Require the given module, recursively resolving dependencies as
   // necessary.
-  var require = root.require = function (name, requester) {
+  require = function (name, requester) {
 
     // Special cases...
     if (name === 'require') return require;
@@ -57,4 +60,4 @@
     isResolved: true,
     exports: require
   };
-})(this);
+})();
