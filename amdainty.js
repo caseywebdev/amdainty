@@ -54,10 +54,4 @@ var require;
     if (val !== undefined) mod.exports = val;
     return mod.exports;
   };
-
-  // Require will always be defined as a special module.
-  mods.require = {
-    isResolved: true,
-    exports: require
-  };
 })();
